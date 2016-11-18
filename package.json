@@ -1,0 +1,27 @@
+{
+  "name": "cpuprofile",
+  "version": "0.1.0",
+  "description": "Extends the JSON object of a parsed .cpuprofile file with its sampling interval and each node of the profile with its self and total execution time.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ruhleder/cpuprofile.git"
+  },
+  "homepage": "https://github.com/ruhleder/cpuprofile",
+  "keywords": [
+    "cpuprofile",
+    "profile"
+  ],
+  "author": {
+    "name": "Sebastian Ruhleder",
+    "email": "sebastian.ruhleder@gmail.com",
+    "url": "https://github.com/ruhleder"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.2"
+  }
+}
