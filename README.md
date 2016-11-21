@@ -1,6 +1,6 @@
 # cpuprofile
 
-Extends the JSON object of a parsed `.cpuprofile` file with its sampling interval and each node of the profile with its self and total execution time.
+A simple representation of .cpuprofile files.
 
 ## Installation
 
@@ -11,18 +11,28 @@ npm install --save cpuprofile
 ## Usage
 
 ```javascript
-var cpuprofile = require('cpuprofile');
+const Profile = require('cpuprofile').Profile;
 
-// read a .cpuprofile file
-var content = require('fs').readFileSync('prof.cpuprofile', {encoding: 'utf8'});
-var profile = JSON.parse(content);
+// read and parse a .cpuprofile file
+let content = require('fs').readFileSync('prof.cpuprofile', {encoding: 'utf8'});
+let parsed = JSON.parse(content);
 
-// calculate sampling interval, and self and total times for each node
-cpuprofile.calculateTimes(profile);
+// create Profile
+let profile = Profile.createFromObject(parsed);
 
-// accumulates and outputs the self and total times of the functions present in the profile
-var overview = cpuprofile.format(profile);
+// generate formatted overview on self and total times
+let output = profile.formattedBottomUpProfile();
 ```
+
+## Features
+
+- `Profile` and `ProfileNode` classes.
+- Generation of Bottom Up Profiling view of Chrome DevTools.
+
+## Credits
+
+- [Alexei Filippov](mailto:alph@chromium.org): Thanks for pointing me in the right direction!
+- [Chromium](https://chromium.googlesource.com/): The calculation of self and total times is adapted from parts of the Chromium project.
 
 ## License
 
